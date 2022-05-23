@@ -14,7 +14,12 @@ class UserService:
 
     def add_new_user(self, input_body):
         input_body = request.get_json()
-        new_user = User(input_body["name"], input_body["email"], input_body["password"])
+        new_user = User(
+            input_body["name"],
+            input_body["email"],
+            input_body["password"],
+            input_body["age"],
+        )
         new_user.save()
         print(new_user)
         return user_schema.dump(new_user)

@@ -10,5 +10,6 @@ class UserSchema(ma.SQLAlchemySchema):
     name = ma.auto_field()
     email = ma.auto_field()
     password = ma.auto_field()
+    age = ma.auto_field()
     created_at = ma.auto_field()
     updated_at = ma.auto_field()

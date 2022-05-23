@@ -35,13 +35,15 @@ class User(Base):
     name = db.Column(db.String(128), nullable=False)
     email = db.Column(db.String(128), nullable=False, unique=True)
     password = db.Column(db.String(192), nullable=False)
+    age = db.Column(db.Integer, nullable=True)
 
     # New instance instantiation procedure
-    def __init__(self, name, email, password):
+    def __init__(self, name, email, password, age):
 
         self.name = name
         self.email = email
         self.password = password
+        self.age = age
 
     @classmethod
     def find_by_id(cls, user_id):

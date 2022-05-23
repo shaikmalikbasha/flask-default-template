@@ -1,9 +1,10 @@
+import os
+
 from dotenv import load_dotenv
 from flask import Flask
 from flask_restful import Api
-import os
 
-from app.db import db, ma
+from app.db import db, ma, migrate
 from app.user.user_resource import UserResourceList
 
 load_dotenv(".env")
@@ -18,6 +19,7 @@ app.config.from_object("config")
 api = Api(app)
 db.init_app(app)
 ma.init_app(app)
+migrate.init_app(app, db)
 
 
 @app.before_request
